@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Robert Drummond" />
+
+<meta name="date" content="2018-07-14" />
+
+<title>Getting Started</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting Started</h1>
+<h4 class="author"><em>Robert Drummond</em></h4>
+<h4 class="date"><em>2018-07-14</em></h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#get">Get</a></li>
+<li><a href="#create">Create</a></li>
+<li><a href="#update">Update</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#check-out-the-tests">Check out the Tests</a></li>
+</ul>
+</div>
+
+<p>First, load the <code>copperr</code> package and login using your user Id and API Key. User credentials will be stored in a package-internal environment named <code>.pkgglobalenv</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(copperr)
+<span class="kw">cppr_initialize</span>(<span class="dt">uid =</span> <span class="st">&quot;your copper user id&quot;</span>, <span class="dt">api_key=</span> <span class="st">&quot;your copper API key&quot;</span>, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>After initializing, you can now check your connectivity by looking at the information returned about Users.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get a table of users</span>
+<span class="co"># it's a simple easy call to get started </span>
+<span class="co"># and confirm a connection to the APIs</span>
+users.df &lt;-<span class="st"> </span><span class="kw">cppr_getUsers</span>()
+<span class="kw">print</span>(<span class="st">&quot;Table of Users:&quot;</span>)
+users.df</code></pre></div>
+<div id="get" class="section level3">
+<h3>Get</h3>
+<p>Copper has objects and those objects contain records. If you’re using R with Copper, it will likely be mainly for extracting and analyzing the data held in Copper. The <code>cppr_getXXX()</code> functions pull down a specific set of records and fields and are similar to running a query. Let’s retrieve a set of Companies as a data frame using a few of the available filter arguments, and sort the table alphabetically by name in reverse order</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">floridaRecords.df &lt;-<span class="st"> </span><span class="kw">cppr_getCompanies</span>(<span class="dt">country=</span><span class="st">&quot;US&quot;</span>, <span class="dt">state=</span><span class="st">&quot;FL&quot;</span>, <span class="dt">sort_by=</span><span class="st">&quot;name&quot;</span>, <span class="dt">sort_direction=</span><span class="st">&quot;desc&quot;</span>)
+
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(floridaRecords.df)) {
+  <span class="kw">sprintf</span>(<span class="st">&quot;retrieved %d matching records&quot;</span>,<span class="kw">nrow</span>(floridaRecords.df))
+  floridaRecords.df
+}</code></pre></div>
+<p>or we can simply exract all records of any type of object, by omitting the filter arguments, like this, then filter, sort and manipulate the data frame using tidy <code>dplyr</code> functions</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">allRecords.df &lt;-<span class="st"> </span><span class="kw">cppr_getCompanies</span>()
+
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(allRecords.df)) {
+  <span class="kw">sprintf</span>(<span class="st">&quot;retrieved all %d records&quot;</span>,<span class="kw">nrow</span>(allRecords.df))
+}</code></pre></div>
+</div>
+<div id="create" class="section level3">
+<h3>Create</h3>
+<p>The <code>cppr_createNewXxx</code> functions will create new records. This example shows how to create a new record in the Company object. the fields are provided as a list, which must contain all the fields your organization has defined as mandatory under the Copper settings. The function returns the id assigned by Copper to the new record. Copper creates this unique numeric identifier for each record and uses that to know which record to attach the update information you provide.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fields &lt;-<span class="st"> </span><span class="kw">list</span>( <span class="st">`</span><span class="dt">name</span><span class="st">`</span> =<span class="st"> &quot;Kodak&quot;</span>,
+                <span class="st">`</span><span class="dt">assignee_id</span><span class="st">`</span> =<span class="st"> </span>users.df<span class="op">$</span>id[<span class="dv">1</span>])
+newCompanyId &lt;-<span class="st"> </span><span class="kw">cppr_createNewCompany</span>(fields)
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(newCompanyId))
+  <span class="kw">sprintf</span>(<span class="st">&quot;successfully created a new Company with id %d&quot;</span>,newCompanyId)</code></pre></div>
+<p>There are also <code>cppr_getXxx</code> functions that pull down a single Object. Here is an example where we retrieve the record we just created, using the id returned by Copper.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">retrievedRecord &lt;-<span class="st"> </span><span class="kw">cppr_getCompanyById</span>(newCompanyId)
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">is.null</span>(retrievedRecord))
+  <span class="kw">sprintf</span>(<span class="st">&quot;retrieved the Company named %s&quot;</span>,retrievedRecord<span class="op">$</span>name)</code></pre></div>
+</div>
+<div id="update" class="section level3">
+<h3>Update</h3>
+<p>After creating records you can also modify or update them using the <code>cppr_updateXxx()</code> functions. Updating a record requires you to pass the Copper id of the record, and a list of field labels and values (you only provide the fields that you want to modify). Here is an example where we update the Company record we created earlier with new <code>details</code> information</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Update that new Company we created</span>
+
+updatedRecord &lt;-<span class="st"> </span><span class="kw">cppr_updateCompany</span>(newCompanyId, <span class="kw">list</span>(<span class="st">`</span><span class="dt">details</span><span class="st">`</span>=<span class="st">&quot;updated today&quot;</span>))
+updatedRecord</code></pre></div>
+</div>
+<div id="resources" class="section level3">
+<h3>Resources</h3>
+<p>Copper contains static reference data it calls Resources. These are the pipelines, contact types, custom fields, dropdown menu options, etc. you will find under the Copper settings. You will need to retrieve these Resources to associate the labels you see in the Copper UI with their corresponding ids assigned by Copper internally. Copper delivers the ids for these resources in the Object records you retrieve, and expects you to provide the ids, not the labels when creating and updating record fields.</p>
+<p>A simple resource to start with is the list of options you see in the dropdown menu when selecting a <code>Contact Type</code> (typically these will have labels scuh as “Current Customer”, “Potential Customer”, etc).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cType &lt;-<span class="st"> </span><span class="kw">cppr_getContactTypes</span>()
+<span class="kw">print</span>(<span class="st">&quot;the dropdown for Contact Type contains these options:&quot;</span>)
+cType</code></pre></div>
+<p>The Custom Fields your organization has defined in Copper, and the options defined for any that are dropdown type, are also all identified only by their Ids in records delivered by Copper. You are likely to need to map field names and options to their ids and vice versa many times, so the Custome Field Definitions are retrieved and cached in the package’s local environment on the first call to any of the custom field functions. Subsequent calls will access the cached table</p>
+<p>Lets see how we can handle Custom Fields using the package functions provided</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressWarnings</span>(<span class="kw">library</span>(dplyr))
+
+<span class="co"># retrieve a table of all defined Custom Fields</span>
+customFields &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldDefinitions</span>()
+<span class="kw">sprintf</span>(<span class="st">&quot;there are %d custom fields defined&quot;</span>, <span class="kw">nrow</span>(customFields))
+
+<span class="co"># let's identify any of these fields that has an associated list of dropdown menu options </span>
+<span class="co"># for its values</span>
+dropdownFields &lt;-<span class="st"> </span>customFields <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">data_type</span><span class="st">`</span><span class="op">==</span><span class="st">&quot;Dropdown&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(name)
+anyDropDownField &lt;-<span class="st"> </span><span class="kw">as.character</span>(dropdownFields[<span class="dv">1</span>])
+
+<span class="co"># we can check again that the data type for this field is Dropdown using this helper function </span>
+<span class="co"># and the field's id</span>
+dtype &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldDatatype</span>(anyDropdownField)
+<span class="kw">sprintf</span>(<span class="st">&quot;the data type for the %s custom field is %s&quot;</span>,anyDropdownField,dtype)</code></pre></div>
+<p>Now let’s try out dereferencing the id from the name for that Custom Field using a helper function, and also just for fun then look up the name again using the id</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fieldId &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldId</span>(anyDropdownField)
+<span class="kw">sprintf</span>(<span class="st">&quot;the id for the %s custom field is %d&quot;</span>,anyDropdownField, fieldId)
+
+fieldName &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldName</span>(fieldId)
+<span class="kw">sprintf</span>(<span class="st">&quot;the name for the custom field %d is %s&quot;</span>, fieldId, fieldName)</code></pre></div>
+<p>A Field of Dropdown (or MultiSelect) data type has a list of valid options to select from. Each option has a text label and an id assigned by Copper. Lets see how we can use these</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># retrieve the table of valid options available for this Custom Field</span>
+options &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldOptionsAll</span>(anyDropdownField)
+<span class="kw">sprintf</span>(<span class="st">&quot;the options available for the %s custom field dropdown:&quot;</span>,anyDropdownField)
+options
+
+<span class="co"># look up the label name for one of the options in the table. let's simply take the first</span>
+optionName &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldOptionName</span>(anyDropdownField, options<span class="op">$</span>id[<span class="dv">1</span>])
+<span class="kw">sprintf</span>(<span class="st">&quot;the label for option %d of dropdown field %s is %s&quot;</span>, options<span class="op">$</span>id[<span class="dv">1</span>], anyDropdownField, optionName)
+
+optionId &lt;-<span class="st"> </span><span class="kw">cppr_getCustomFieldOptionId</span>(anyDropdownField,optionName)
+<span class="kw">sprintf</span>(<span class="st">&quot;the id for the option [%s] of dropdown field %s is %d&quot;</span>, optionName, anyDropdownField, optionId)</code></pre></div>
+<p>Lets see how we use these functions to update a custom field of the Company we created above</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fields &lt;-<span class="st"> </span><span class="kw">list</span>( <span class="dt">anyDropdownField =</span> optionId)
+<span class="cf">if</span>(<span class="kw">cppr_updateCompany</span>(newCompanyId, fields) <span class="op">==</span><span class="st"> </span>newCompanyId){
+    <span class="kw">sprintf</span>(<span class="st">&quot;updated dropdown custom field [%s] of new Company to [%s] successfully&quot;</span>, anyDropdownField, optionName)
+}</code></pre></div>
+<p>When we are dealing with records from the Opportunity Object, we will also need to deal with Pipeline and Pipeline Stage resources. Let’s start by retrieving all the Pipelines your organzation has defined in Copper</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pipelines.df &lt;-<span class="st"> </span><span class="kw">cppr_getPipelines</span>()
+pipelines.df</code></pre></div>
+<p>Now lets see what Stages have been defined for the first Pipeline in the table</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stages.df &lt;-<span class="st"> </span><span class="kw">cppr_getPipelineStages</span>(pipelines.df<span class="op">$</span>id[<span class="dv">1</span>])
+<span class="kw">sprintf</span>(<span class="st">&quot;Stages for the [%s] Pipeline&quot;</span>,pipelines.df<span class="op">$</span>name[<span class="dv">1</span>])
+stages.df</code></pre></div>
+</div>
+<div id="check-out-the-tests" class="section level3">
+<h3>Check out the Tests</h3>
+<p>The <strong>Copperr</strong> package has quite a bit of unit test coverage to track any changes made between newly released versions of the Copper API. These tests are an excellent source of examples because they cover most all cases of utilizing the package functions.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

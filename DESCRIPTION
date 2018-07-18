@@ -1,0 +1,28 @@
+Package: copperr
+Type: Package
+Title: An API Library for the Copper (formerly Prosperworks) CRM product
+Version: 0.1.0
+Date: 2018-07-06
+Author: Robert Drummond <bob@robert-drummond.com>
+Maintainer: Robert Drummond <bob@robert-drummond.com>
+Description: Provides functions for accessing and maintaining data in the Copper 
+    CRM system.
+    provides access to Users, People, Companies, Opportunities and Resources including custom fields.
+Depends:
+    R (>= 2.15)
+Imports:
+    jsonlite,
+    httr,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    devtools,
+    roxygen2,
+    testthat
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+URL: http://robert-drummond.com/copperr
+VignetteBuilder: knitr

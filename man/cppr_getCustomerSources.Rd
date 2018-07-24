@@ -7,9 +7,9 @@
 cppr_getCustomerSources()
 }
 \value{
-a data frame, or NULL on error
-Field Type    Details
-id    number  Unique identifier for the Contact Type.
+a data frame, or NULL on error\cr
+Field Type    Details\cr
+id    number  Unique identifier for the Contact Type.\cr
 name  string  The name of the Contact Type.
 }
 \description{
@@ -23,7 +23,8 @@ print(paste("the customer sources defined in Copper are", ct$name))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

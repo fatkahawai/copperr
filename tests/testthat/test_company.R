@@ -1,5 +1,5 @@
 context("Company functions")
-#library()
+library(config)
 
 dw <- config::get("copper") 
 cppr_initialize(dw$uid,dw$api_key)
@@ -14,7 +14,7 @@ testCompanyId <- cppr_createNewCompany(list(
                                                 `name` = "Test Company", 
                                                 `address` = list(`city`="Auckland", `country` = "NZ"), 
                                                 `email_domain` = "testcompany.com",
-                                                `tags` = list("test")
+                                                `tags` = list("test_copperr")
                                                 ))
 
 test_that("cppr_createNewCompany() with a list containing all mandatory fields should return a non-Null numeric id  result", {
@@ -28,12 +28,23 @@ test_that("cppr_getCompanyByName() should return a non-NULL, non-empty result if
   expect_equal( length(cppr_getCompanyByName("A guaranteed non-existent company name")),0)
 })
 
+company <- cppr_getCompanyById(testCompanyId)
+
 test_that("cppr_getCompanyById() should return a non-NULL, non-empty result if that Id exists", {
   if(!is.null(testCompanyId)){
-    expect_failure(expect_null( cppr_getCompanyById(testCompanyId)))
-    expect_gt(length( cppr_getCompanyById(testCompanyId)),0)
+    expect_failure(expect_null( company ))
+    expect_gt(length( company),0)
   }
 #  expect_null(cppr_getCompanyById(-1)) # will cause a 500 error
+})
+
+test_that("cppr_extractCustomFieldValues() with a valid Company and field name returns a list of values", {
+  if(!is.null(testCompanyId)){
+    customFields <- cppr_getCustomFieldDefinitions()
+    value_lst <- cppr_extractCustomFieldValues(company$custom_fields, customFields$name[1])
+    expect_failure(expect_null( value_lst ))
+#    expect_gt(length( value_lst ),0)
+  }
 })
 
 test_that("cppr_getCompanies(tags=\"test_copperr\") should return a non-NULL result", {
@@ -55,5 +66,4 @@ test_that("cppr_deleteCompany() with a list containing all mandatory fields shou
     expect_failure(expect_null( cppr_deleteCompany(testCompanyId)))
   }
 })
-
 

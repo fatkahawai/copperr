@@ -10,29 +10,29 @@ cppr_getOppById(id)
 \item{id}{numeric - the Id of the opportunity to return}
 }
 \value{
-a List of Opportunity fields with various types, or Null if no Opp found
-Field               Type  Details
-id                  number  Unique identifier for the Opportunity.
-name               string  The name of the Opportunity.
-assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.
-close_date          string  The expected close date of the Opportunity in MM/DD/YYYY or DD/MM/YYYY format.
-company_id          string  The unique identifier of the primary Company with which the Opportunity is associated.
-company_name        string  The name of the primary Company with which the Opportunity is associated.
-customer_source_id  number  Unique identifier of the Customer Source that generated this Opportunity.
-details             string  Description of the Opportunity.
-loss_reason_id      number  If the Opportunity's status is "Lost", the unique identifier of the loss reason that caused this Opportunity to be lost.
-monetary_value      number  The monetary value of the Opportunity.
-pipeline_id         number  The unique identifier of the Pipeline in which this Opportunity is.
-primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.
-priority            string_enum The priority of the Opportunity. Valid values are: "None", "Low", "Medium", "High".
-pipeline_stage_id   number  The unique identifier of the Pipeline Stage of the Opportunity.
-status              string_enum The status of the Opportunity. Valid values are: "Open", "Won", "Lost", "Abandoned".
-tags                list  An array of the tags associated with the Opportunity, represented as strings.
-win_probability     number  The expected probability of winning the Opportunity. Valid values are [0-100] (inclusive).
-date_created        number  A Unix timestamp representing the time at which this Opportunity was created.
-date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.
-custom_fields[]     list  An array of custom field values belonging to the Opportunity.
-custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.
+a List of Opportunity fields with various types, or Null if no Opp found\cr
+Field               Type  Details\cr
+id                  number  Unique identifier for the Opportunity.\cr
+name               string  The name of the Opportunity.\cr
+assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.\cr
+close_date          string  The expected close date of the Opportunity in MM/DD/YYYY or DD/MM/YYYY format.\cr
+company_id          string  The unique identifier of the primary Company with which the Opportunity is associated.\cr
+company_name        string  The name of the primary Company with which the Opportunity is associated.\cr
+customer_source_id  number  Unique identifier of the Customer Source that generated this Opportunity.\cr
+details             string  Description of the Opportunity.\cr
+loss_reason_id      number  If the Opportunity's status is "Lost", the unique identifier of the loss reason that caused this Opportunity to be lost.\cr
+monetary_value      number  The monetary value of the Opportunity.\cr
+pipeline_id         number  The unique identifier of the Pipeline in which this Opportunity is.\cr
+primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.\cr
+priority            string_enum The priority of the Opportunity. Valid values are: "None", "Low", "Medium", "High".\cr
+pipeline_stage_id   number  The unique identifier of the Pipeline Stage of the Opportunity.\cr
+status              string_enum The status of the Opportunity. Valid values are: "Open", "Won", "Lost", "Abandoned".\cr
+tags                list  An array of the tags associated with the Opportunity, represented as strings.\cr
+win_probability     number  The expected probability of winning the Opportunity. Valid values are [0-100] (inclusive).\cr
+date_created        number  A Unix timestamp representing the time at which this Opportunity was created.\cr
+date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.\cr
+custom_fields[]     list  An array of custom field values belonging to the Opportunity.\cr
+custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
 custom_fields[].value mixed The value (number, string, option id, or timestamp) of this Custom Field.
 }
 \description{
@@ -46,6 +46,8 @@ print(paste("opp name is",opp$name))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Opportunity functions: \code{\link{cppr_createNewOpp}},
   \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppByName}},

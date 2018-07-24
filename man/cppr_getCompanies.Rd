@@ -17,13 +17,15 @@ cppr_getCompanies(assignee_id = NULL, country = NULL, state = NULL,
 \item{tags}{string - select companies with one of these tags}
 
 \item{sort_by}{values can be any of : (can be combined to provided ANDed)
-name
-assignee
-company_name
-customer_source
-city
-state
-inactive_days}
+\itemize{
+  \item name
+  \item assignee
+  \item company_name
+  \item customer_source
+  \item city
+  \item state
+  \item inactive_days
+}}
 
 \item{sort_direction}{can be "desc" or "asc"}
 }
@@ -32,7 +34,7 @@ a data frame of Company field lists, or Null if not found
 each Company is a row in the data frame, and contains a list of fields
 }
 \description{
-return a full table of all Company records from Copper
+Return a full table of all Company records from Copper
 }
 \examples{
 \dontrun{
@@ -42,6 +44,8 @@ print(paste("retrieved",nrow(companies),"companies from Copper"))
 }
 \seealso{
 \code{\link{cppr_getCompanyById}} for full list of available Company fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other Company functions: \code{\link{cppr_createNewCompany}},
   \code{\link{cppr_deleteCompany}},

@@ -8,8 +8,8 @@ Maintainer: Robert Drummond <bob@robert-drummond.com>
 Description: Provides functions for accessing and maintaining data in the Copper 
     CRM system.
     provides access to Users, People, Companies, Opportunities and Resources including custom fields.
-Depends:
-    R (>= 2.15)
+Depends: 
+    R (>= 3.5.0)
 Imports:
     jsonlite,
     httr,

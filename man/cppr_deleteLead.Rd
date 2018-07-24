@@ -23,6 +23,8 @@ if(!is.null(cppr_deleteLead(id)))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Lead functions: \code{\link{cppr_createNewLead}},
   \code{\link{cppr_getLeads}},
   \code{\link{cppr_updateLead}}

@@ -45,14 +45,15 @@
 #
 #' returns a table of all Copper users
 #'
-#' @return a data frame of users, or NULL on error
-#' Field Type    Details
-#' id    number  Unique identifier 
-#' name  string  The user name 
+#' @return a data frame of users, or NULL on error.\cr
+#' Field Type    Details\cr
+#' id    number  Unique identifier \cr
+#' name  string  The user name \cr
 #' email string  email address 
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @family user functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' users <- cppr_getUsers()
@@ -115,6 +116,7 @@ cppr_getUsers <- function() {
 #' 
 #' @return a Copper ID, or NULL if not found
 #' @family user functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' id <- cppr_getUserId("Bob")

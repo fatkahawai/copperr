@@ -1,9 +1,6 @@
 context("People functions")
 #library()
 
-dw <- config::get("copper") 
-cppr_initialize(dw$uid,dw$api_key)
-
 # clean up any test data from previous test runs
 artifactPp <- cppr_getPeople(tags="test_copperr")
 if(nrow(artifactPp) > 0 ){

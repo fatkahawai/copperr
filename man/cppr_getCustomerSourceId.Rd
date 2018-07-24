@@ -7,8 +7,7 @@
 cppr_getCustomerSourceId(source_label)
 }
 \arguments{
-\item{source_label}{- the name given to an option in the dropdown, e.g. "outbound"
-get Id for a Source label}
+\item{source_label}{- the name given to an option in the dropdown, e.g. "outbound"}
 }
 \value{
 a numeric Id
@@ -23,7 +22,8 @@ print(paste("the id for 'Inbound' source is", id))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

@@ -23,12 +23,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-First, load the `copperr` package and login using your user Id and API Key. User credentials will 
-be stored in a package-internal environment named `.pkgglobalenv`.
+First, load the `copperr` package and login using your user Id and API Key. This example uses the config package so you will need to record your credentials in a confo.yml file in the current diectory. Your credentials will be cached in a package-internal environment to avoid having to pass them to every call to a package method.
 
-```{r, eval=FALSE}
+```{r}
+library(config) # for loading credentials from a local config.yml file  
 library(copperr)
-cppr_initialize(uid = "your copper user id", api_key= "your copper API key", verbose = FALSE)
+
+# load credentials from config.yml 
+dw <- config::get("copper") 
+sprintf("loaded uid %s and api key %s from config.yml file", dw$uid, dw$api_key)
+
+cppr_initialize( uid=dw$uid, api_key=dw$api_key, verbose=FALSE)
 ```
 
 After initializing, you can now check your connectivity by looking at the information returned about Users. 

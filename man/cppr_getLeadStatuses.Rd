@@ -25,7 +25,8 @@ print(paste("the statuses are called",statuses$name))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

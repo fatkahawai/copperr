@@ -45,9 +45,9 @@
 #' get a table of Contact Types defined in Copper (e.g. "Existing Customer")
 #' for use in the corresponding field in Company records
 #'
-#' @return a data frame, or NULL on error
-#' Field Type    Details
-#' id    number  Unique identifier for the Contact Type.
+#' @return a data frame, or NULL on error\cr
+#' Field Type    Details\cr
+#' id    number  Unique identifier for the Contact Type.\cr
 #' name  string  The name of the Contact Type.
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
@@ -112,9 +112,9 @@ cppr_getContactTypes <- function() {
 #' get a table of Customer Sources defined in Copper (e.g. "Inbound", etc)
 #' for use in the corresponding field in Opportunity records
 #'
-#' @return a data frame, or NULL on error
-#' Field Type    Details
-#' id    number  Unique identifier for the Contact Type.
+#' @return a data frame, or NULL on error\cr
+#' Field Type    Details\cr
+#' id    number  Unique identifier for the Contact Type.\cr
 #' name  string  The name of the Contact Type.
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
@@ -180,7 +180,6 @@ cppr_getCustomerSources <- function() {
 #' get the Id for a named Customer Source (e.g. "Inbound")
 #'
 #' @param source_label - the name given to an option in the dropdown, e.g. "outbound"
-#' get Id for a Source label
 #' @return a numeric Id
 #' @family Resource functions
 #' @examples
@@ -209,20 +208,21 @@ cppr_getCustomerSourceId <- function(source_label){
 #'
 #' get a table of defintions for your custom fields
 #'
-#' @return a data frame, or NULL if not found
-#' Field     Type          Details
-#' id        number        Unique identifier for the custom field definition.
-#' name      string        Label for the custom field definition
+#' @return a data frame, or NULL if not found\cr
+#' Field     Type          Details\cr
+#' id        number        Unique identifier for the custom field definition.\cr
+#' name      string        Label for the custom field definition\cr
 #' data_type string enum   The type of data that should be stored within this custom field. 
 #'                         Possible values are: String, Text, Dropdown, Date, Checkbox, Float, 
-#'                         Url, Percentage, Currency
-#' currency  string enum   The currency used for this custom field definition. Valid only when 
-#'                         the data type is Currency.
+#'                         Url, Percentage, Currency\cr
+#' currency  string enum   The currency used for this custom field definition. Valid only when \cr
+#'                         the data type is Currency.\cr
 #' options   options array A list of possible dropdown options. Valid only when the data type is Dropdown.
 #' @importFrom utils str
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' customFields <- cppr_getCustomFieldDefinitions()
@@ -286,11 +286,12 @@ cppr_getCustomFieldDefinitions <- function() {
 #' @param field_name - the name text of the custom field, e.g. "Vertical"
 #' @note on first call, stores list of custom field definitions in a global var 
 #' to avoid unnecessary subsequent API calls
-#' @return string - the datatype, or NULL if not found
+#' @return string - the datatype, or NULL if not found\cr
 #' data_type string enum   The type of data that should be stored within this custom field. 
 #'                         Possible values are: String, Text, Dropdown, Date, Checkbox, Float, 
 #'                         Url, Percentage, Currency
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' type <- cppr_getCustomFieldDatatype("Industry")
@@ -327,6 +328,7 @@ cppr_getCustomFieldDatatype <- function(field_name){
 #' @note on the first call to this function, a list of custom field definitions is 
 #' stored in a local environment for performance - to avoid unnecessary subsequent API calls
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' id <- cppr_getCustomFieldId("Industry")
@@ -362,6 +364,7 @@ cppr_getCustomFieldId <- function(field_name){
 #' to avoid unnecessary subsequent API calls
 #' @return the Id of that custom field, or NULL if not found
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' name <- cppr_getCustomFieldName(20278)
@@ -400,6 +403,7 @@ cppr_getCustomFieldName <- function(field_id){
 #' to avoid unnecessary subsequent API calls
 #' @return the Id number of the option label, or NULL if not found
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' id <- cppr_getCustomFieldOptionId("Industry","Finance")
@@ -439,6 +443,7 @@ cppr_getCustomFieldOptionId <- function(field_name, option_label){
 #' to avoid unnecessary subsequent API calls
 #' @return the text label for the option, or NULL if not found
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' name <- cppr_getCustomFieldOptionName("Industry",202193)
@@ -480,6 +485,7 @@ cppr_getCustomFieldOptionName <- function(field_name, option_id){
 #' to avoid unnecessary subsequent API calls
 #' @return a data frame of options, or NULL if not found
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' options <- cppr_getCustomFieldOptionsAll("Industry")
@@ -507,21 +513,64 @@ cppr_getCustomFieldOptionsAll <- function(field_name){
 }
 
 # ----------------------------------------------------------------------------
+#' cppr_extractCustomFieldValues
+#' 
+#' Get a list of the value or values for a specific Custom Field of any Copper Object.
+#' there may be multiple values e.g. if it is a MultiSelect field data type
+#'
+#' @param custom_fields data frame - set of custom field ids and values from a record 
+#' returned from Copper using one of the cppr_getXxx functions
+#' @param field_name string - the name text of the custom field, e.g. "Vertical"
+#' @note on first call, stores list of custom field definitions in a global env 
+#' to avoid unnecessary subsequent API calls
+#' @return a list of values, or NULL if not found
+#' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+#' @examples
+#' \dontrun{ 
+#' company <- cppr_getCompanyById(id)
+#' values <- cppr_extractCustomFieldValues(company$custom_fields, "Industry")
+#' print("there are",length(values),"values defined for this custom field:",values)
+#' }
+#' @export
+# ----------------------------------------------------------------------------
+cppr_extractCustomFieldValues <- function(custom_fields,field_name) {
+    
+    stopifnot(pkg_is_initialized())    
+    stopifnot(is.character(field_name))
+    stopifnot(is.data.frame(custom_fields))
+
+    printIfVerbose("cppr_extractCustomFieldValues:",field_name)
+
+    value_lst <- NULL
+    
+    fieldId <- cppr_getCustomFieldId(field_name)
+    if(is.null(fieldId))
+        return(NULL)
+    
+    # extract the data frame of ids and values from the list element
+    value_lst <- custom_fields$value[custom_fields$custom_field_definition_id==fieldId] 
+    
+    return(value_lst)
+}
+
+# ----------------------------------------------------------------------------
 #' cppr_getPipelines
 #'
 #' get a table containing the definitions of the stages defined for a specified Pipeline
 #' Opportunity records can be assigned to a Pipeline in Copper
 #'
-#' @return a data frame, or NULL if none found
-#' Field                     Details
-#' id (number)               Unique identifier for the Pipeline
-#' name (string)             The name of the Pipeline.
-#' stages (list)             The Stages in this pipeline.
-#' win_probability (number)  The expected probability of winning an Opportunity in this Pipeline Stage. Valid values are [0-100] (inclusive).#
+#' @return a data frame, or NULL if none found\cr
+#' Field                     Details\cr
+#' id (number)               Unique identifier for the Pipeline\cr
+#' name (string)             The name of the Pipeline.\cr
+#' stages (list)             The Stages in this pipeline.\cr
+#' win_probability (number)  The expected probability of winning an Opportunity in this Pipeline Stage. Valid values are [0-100] (inclusive).
 #' @importFrom utils str
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' pipelines <- cppr_getPipelines()
@@ -585,16 +634,17 @@ cppr_getPipelines <- function() {
 #'
 #' @param pipeline_id numeric - the Copper Id of the pipeline you want information on
 #'
-#' @return a data frame, or NULL on error
-#' Field                     Details
-#' id (number)               Unique identifier for the Pipeline Stage.
-#' name (string)             The name of the Pipeline Stage.
-#' pipeline_id (number)      The unique identifier of the Pipeline in which this Pipeline Stage is.
+#' @return a data frame, or NULL on error\cr
+#' Field                     Details\cr
+#' id (number)               Unique identifier for the Pipeline Stage.\cr
+#' name (string)             The name of the Pipeline Stage.\cr
+#' pipeline_id (number)      The unique identifier of the Pipeline in which this Pipeline Stage is.\cr
 #' win_probability (number)  The expected probability of winning an Opportunity in this Pipeline Stage. Valid values are [0-100] (inclusive).#
 #' @importFrom utils str
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' stages <- cppr_getPipelineStages(12345)
@@ -663,10 +713,12 @@ cppr_getPipelineStages <- function(pipeline_id) {
 #'
 #' Get a Copper Id for the stage record identfied by the name argument
 #' for use in the corresponding field in Opportunity records
+#'
 #' @param pipeline_id numeric - the Copper Id of the pipeline you want information on
 #' @param name string - the label (name) of the stage, e.g. "Quote sent"
 #' @return an numeric Id. The first matching Copper Id, or NULL if no match found or on error.
 #' @family Resource functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' pipes <- cppr_getPipelines() 
@@ -763,8 +815,8 @@ cppr_getLeadStatuses <- function() {
         }else{
           printIfVerbose("cppr_getLeadStatuses Failed. status code", raw.result$status_code )
         }
-        stop( sprintf("cppr_getLeadStatuses(%d): API request failed. HTTP Status code %s: %s", 
-              pipeline_id, result$status, result$message), call. = FALSE)
+        stop( sprintf("cppr_getLeadStatuses(): API request failed. HTTP Status code %s: %s", 
+              result$status, result$message), call. = FALSE)
     }   
     return(statuses)
 }
@@ -773,6 +825,7 @@ cppr_getLeadStatuses <- function() {
 #' cppr_getLeadStatusId
 #'
 #' Get a Copper Id for the Status  identfied by the name argument
+#'
 #' @param name string - the label (name) of the status, e.g. "Qualified"
 #' @return an numeric Id. The first matching Copper Id, or NULL if not found.
 #' @family Resource functions
@@ -807,11 +860,11 @@ cppr_getLeadStatusId <- function(name) {
 #' get a table containing the definitions of the Loss Reasons defined
 #' for use in the corresponding field in Opportunity records
 #'
-#' @return a data frame, or NULL on error
-#' Field                     Details
-#' id (number)               Unique identifier for the Pipeline Stage.
-#' name (string)             The name of the Pipeline Stage.
-#' order (number)            The position it is displayed in the list
+#' @return a data frame, or NULL on error\cr
+#' Field                     Details\cr
+#' id (number)               Unique identifier for the Pipeline Stage.\cr
+#' name (string)             The name of the Pipeline Stage.\cr
+#' order (number)            The position it is displayed in the list\cr
 #' is_default (boolean)      indicates if this value is the default for new records
 #' @importFrom utils str
 #' @importFrom jsonlite fromJSON 
@@ -873,8 +926,8 @@ cppr_getLossReasons <- function() {
         }else{
           printIfVerbose("cppr_getLossReasons Failed. status code", raw.result$status_code )
         }
-        stop( sprintf("cppr_getLossReasons(%d): API request failed. HTTP Status code %s: %s", 
-              pipeline_id, result$status, result$message), call. = FALSE)
+        stop( sprintf("cppr_getLossReasons(): API request failed. HTTP Status code %s: %s", 
+              result$status, result$message), call. = FALSE)
     }   
     return(reasons)
 }
@@ -883,6 +936,7 @@ cppr_getLossReasons <- function() {
 #' cppr_getLossReasonId
 #'
 #' Get a Copper Id for the Loss Reason identfied by the name argument
+#'
 #' @param name string - the label (name) of the status, e.g. "Budget"
 #' @return an numeric Id. The first matching Copper Id, or NULL if not found.
 #' @family Resource functions

@@ -29,6 +29,8 @@ print(paste("found",nrow(id),"matching People with this name in Copper"))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_deletePerson}},
   \code{\link{cppr_getAllRecordsRelatedToPerson}},

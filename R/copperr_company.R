@@ -43,26 +43,27 @@
 # ----------------------------------------------------------------------------
 #' cppr_getCompanyById
 #'
-#' get the Company record identified by a Copper Id 
+#' Get the Company record identified by a Copper Id 
 #'
 #' @param id numeric - the Id of the Company to return
-#' @return a List of fields with various types, or Null if not found
-#' Field               Type  Details
-#' id                  number  Unique identifier for the Opportunity.
-#' name*               string  The name of the Opportunity.
-#' assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.
-#' details             string  Description of the Opportunity.
-#' primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.
-#' tags                list  An array of the tags associated with the Opportunity, represented as strings.
-#' date_created        number  A Unix timestamp representing the time at which this Opportunity was created.
-#' date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.
-#' custom_fields[]     list  An array of custom field values belonging to the Opportunity.
-#' custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.
-#' custom_fields[].value mixed The value (number, string, option id, or timestamp) of this Custom Field.
+#' @return a List of fields with various types, or Null if not found\cr
+#' Field Type Details\cr
+#' id  number   Unique identifier for the Opportunity.\cr
+#' name  string  The name of the Opportunity.\cr
+#' assignee_id  number  Unique identifier of the User that will be the owner of the Opportunity.\cr
+#' details  string  Description of the Opportunity.\cr
+#' primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.\cr
+#' tags  list  An array of the tags associated with the Opportunity, represented as strings.\cr
+#' date_created  number  A Unix timestamp representing the time at which this Opportunity was created.\cr
+#' date_modified  number  A Unix timestamp representing the time at which this Opportunity was last modified.\cr
+#' custom_fields[]  A table of custom field values belonging to the Opportunity.\cr
+#' custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
+#' custom_fields[].value  mixed The value (number, string, option id, or timestamp) of this Custom Field.\cr
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getCompanyById}} for full list of available Company fields
 #' @family Company functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{
 #' company <- cppr_getCompanyById(12345)
@@ -125,7 +126,7 @@ cppr_getCompanyById <- function(id) {
 # ----------------------------------------------------------------------------
 #' cppr_getCompanyByName
 #'
-#' get the Company record using its Name 
+#' Get the Company record using its Name 
 #'
 #' @note This uses the search API, which could return multiple companies with the same name. 
 #' Only the first match is returned! (if you initialized the package with Verbose=TRUE, 
@@ -138,6 +139,7 @@ cppr_getCompanyById <- function(id) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getCompanyById}} for full list of available Company fields
 #' @family Company functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{
 #' company <- cppr_getCompanyByName("Kodak")
@@ -204,20 +206,22 @@ cppr_getCompanyByName <- function(name) {
 # ----------------------------------------------------------------------------
 #' cppr_getCompanies
 #'
-#' return a full table of all Company records from Copper
+#' Return a full table of all Company records from Copper
 #'
 #' @param assignee_id numeric - select companies assigned to this User
 #' @param country string - select companies from this country (specify the 2-letter country code, e.g. "NZ")
 #' @param state   string - select companies from this state (specify the full name of state, e.g. "Idaho")
 #' @param tags    string - select companies with one of these tags 
 #' @param sort_by values can be any of : (can be combined to provided ANDed)
-#' name
-#' assignee
-#' company_name
-#' customer_source
-#' city
-#' state
-#' inactive_days
+#' \itemize{
+#'   \item name
+#'   \item assignee
+#'   \item company_name
+#'   \item customer_source
+#'   \item city
+#'   \item state
+#'   \item inactive_days
+#' }
 #' @param sort_direction can be "desc" or "asc"
 #' @return a data frame of Company field lists, or Null if not found
 #' each Company is a row in the data frame, and contains a list of fields 
@@ -226,6 +230,7 @@ cppr_getCompanyByName <- function(name) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getCompanyById}} for full list of available Company fields
 #' @family Company functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{
 #' companies <- cppr_getCompanies()
@@ -329,13 +334,16 @@ cppr_getCompanies <- function(assignee_id=NULL,country=NULL,state=NULL,tags=NULL
       break
     }
   } # for 
+
+ # tidy up: unlist customfield column
+ 
  return(companies)
 }
 
 # ----------------------------------------------------------------------------
 #' cppr_updateCompany
 #'
-#' updates a Company record in Copper using a list of values you provide 
+#' Updates a Company record in Copper using a list of values you provide 
 #' 
 #' @param id numeric - the Id of the Company to be updated
 #' @param list_of_fields list - containing oly the fields you want to modify
@@ -344,6 +352,7 @@ cppr_getCompanies <- function(assignee_id=NULL,country=NULL,state=NULL,tags=NULL
 #' @importFrom httr PUT content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getCompanyById}} for full list of Company fields
 #' @family Company functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{
 #' fields <- list( `assignee_id` = 12345 )
@@ -412,6 +421,7 @@ cppr_updateCompany <- function(id,list_of_fields) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getCompanyById}} for full list of available Company fields
 #' @family Company functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{
 #' fields <- list( `name` = "Kodak",
@@ -472,7 +482,7 @@ cppr_createNewCompany <- function(company) {
 # ----------------------------------------------------------------------------
 #' cppr_deleteCompany
 #'
-#' permanently removes a Company record in Copper identified by the object id
+#' Permanently removes a Company record in Copper identified by the object id
 #' 
 #' @param id numeric - the Id of the Company to be deleted
 #' @return the id of the Company record if successful else NULL 

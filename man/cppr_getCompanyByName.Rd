@@ -13,7 +13,7 @@ cppr_getCompanyByName(name)
 a List of fields with various types, or Null if not found
 }
 \description{
-get the Company record using its Name
+Get the Company record using its Name
 }
 \note{
 This uses the search API, which could return multiple companies with the same name. 
@@ -30,6 +30,8 @@ print(paste("company Id is",company$id))
 }
 \seealso{
 \code{\link{cppr_getCompanyById}} for full list of available Company fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other Company functions: \code{\link{cppr_createNewCompany}},
   \code{\link{cppr_deleteCompany}},

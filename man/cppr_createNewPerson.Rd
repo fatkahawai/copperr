@@ -7,12 +7,12 @@
 cppr_createNewPerson(person)
 }
 \arguments{
-\item{person}{list - a list of fields for the new Person 
-Field        Type    Details
-id           number  Unique identifier 
-name*        string  firstname lastname
-address      address An encapsulation of the Person's street, city, state, postal code, and country.
-assignee_id  number Unique identifier of the User that will be the owner of the Person.
+\item{person}{list - a list of fields for the new Person.\cr 
+Field        Type    Details\cr
+id           number  Unique identifier \cr
+name*        string  firstname lastname\cr
+address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 etc}
 }
 \value{
@@ -32,6 +32,8 @@ if( nrow(id) == 1 ) # found exactly one matching record in Copper
 \code{\link{cppr_getPeople}} for full list of Person fields
 
 \code{\link{cppr_getPersonId}} to find the Person Id if you know their name
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other People functions: \code{\link{cppr_deletePerson}},
   \code{\link{cppr_getAllRecordsRelatedToPerson}},

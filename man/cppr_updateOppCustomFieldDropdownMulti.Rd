@@ -28,6 +28,8 @@ print("Opp updated successfully!")
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Opportunity functions: \code{\link{cppr_createNewOpp}},
   \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppById}},

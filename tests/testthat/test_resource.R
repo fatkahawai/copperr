@@ -1,9 +1,6 @@
 context("Resource functions")
 #library()
 
-dw <- config::get("copper") 
-cppr_initialize(dw$uid,dw$api_key)
-
 test_that("cppr_getContactTypes() should return a non-NULL result", {
   expect_failure(expect_null(cppr_getContactTypes()))
 })

@@ -26,6 +26,8 @@ if(cppr_createNewLead(fields))
 \seealso{
 \code{\link{cppr_getLeads}} for full list of Lead fields
 
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Lead functions: \code{\link{cppr_deleteLead}},
   \code{\link{cppr_getLeads}},
   \code{\link{cppr_updateLead}}

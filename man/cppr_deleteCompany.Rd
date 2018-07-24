@@ -13,7 +13,7 @@ cppr_deleteCompany(id)
 the id of the Company record if successful else NULL
 }
 \description{
-permanently removes a Company record in Copper identified by the object id
+Permanently removes a Company record in Copper identified by the object id
 }
 \examples{
 \dontrun{

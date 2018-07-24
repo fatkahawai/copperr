@@ -31,6 +31,8 @@ opp <- cppr_getOppByName("Kodak film")
 \seealso{
 \code{\link{cppr_getOppById}} for full list of Opportunity fields
 
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Opportunity functions: \code{\link{cppr_createNewOpp}},
   \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppById}},

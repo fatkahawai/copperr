@@ -21,5 +21,7 @@ id <- cppr_getUserId("Bob")
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other user functions: \code{\link{cppr_getUsers}}
 }

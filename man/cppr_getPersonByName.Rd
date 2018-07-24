@@ -10,12 +10,12 @@ cppr_getPersonByName(name)
 \item{name}{string - the full name of the person 'firstname lastname'}
 }
 \value{
-a list of Person fields, or NULL if unsuccessful
-Field        Type    Details
-id           number  Unique identifier 
-name*        string  firstname lastname
-address      address An encapsulation of the Person's street, city, state, postal code, and country.
-assignee_id  number Unique identifier of the User that will be the owner of the Person.
+a list of Person fields, or NULL if unsuccessful.\cr
+Field        Type    Details\cr
+id           number  Unique identifier\cr
+name         string  firstname lastname.\cr
+address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 etc
 }
 \description{
@@ -36,6 +36,8 @@ print(paste("Person is related to the company",person$company_name))
 }
 \seealso{
 \code{\link{cppr_getPeople}} for full list of Person fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_deletePerson}},

@@ -21,36 +21,36 @@ cppr_getPeople(assignee_id = NULL, country = NULL, state = NULL,
 \item{sort_direction}{string - allowed values "asc" or "desc"}
 }
 \value{
-a data frame, where each row is a Person, or NULL on error
-Field          Type    Details
-id             number  Unique identifier 
-name           string  firstname lastname
-address        address ecapulsation of street,city,postcode,state, country
-assignee_id    number  Unique identifier of the User that will be the owner of the Person.
-company_id     string  The unique identifier of the primary Company with which the Person is associated.
-company_name   string  The name of the primary Company with which the Person is associated.
-contact_type_id number  The unique identifier of the Contact Type of the Person.
-details        string  Description of the Person.
-emails[]       list  An array of email addresses belonging to the Person.
-emails[].email  string  An email address.
-emails[].category string  The category of the email address.
-phone_numbers[] list  An array of phone numbers belonging to the Person.
-phone_numbers[].number  string  A phone number.
-phone_numbers[].category  string  The category of the phone number.
-socials[]       list  An array of social profiles belonging to the Person.
-socials[].url    string  The URL of a social profile.
-socials[].category  string  The category of the social profile.
-tags           list  An array of the tags associated with the Person, represented as strings.
-title string  The professional title of the Person.
-websites[]     list  An array of websites belonging to the Person.
-websites[].url  string  The URL of a website.
-websites[].category string  The category of the website.
-date_created   number  A Unix timestamp representing the time at which this Person was created.
-date_modified  number  A Unix timestamp representing the time at which this Person was last modified.
-custom_fields[] list  An array of custom field values belonging to the Person.
-custom_fields[]   
-.custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.
-custom_fields[]   
+a data frame, where each row is a Person, or NULL on error.\cr
+Field          Type    Details\cr
+id             number  Unique identifier \cr
+name           string  firstname lastname\cr
+address        address ecapulsation of street,city,postcode,state, country\cr
+assignee_id    number  Unique identifier of the User that will be the owner of the Person.\cr
+company_id     string  The unique identifier of the primary Company with which the Person is associated.\cr
+company_name   string  The name of the primary Company with which the Person is associated.\cr
+contact_type_id number  The unique identifier of the Contact Type of the Person.\cr
+details        string  Description of the Person.\cr
+emails[]       list  An array of email addresses belonging to the Person.\cr
+emails[].email  string  An email address.\cr
+emails[].category string  The category of the email address.\cr
+phone_numbers[] list  An array of phone numbers belonging to the Person.\cr
+phone_numbers[].number  string  A phone number.\cr
+phone_numbers[].category  string  The category of the phone number.\cr
+socials[]       list  An array of social profiles belonging to the Person.\cr
+socials[].url    string  The URL of a social profile.\cr
+socials[].category  string  The category of the social profile.\cr
+tags           list  An array of the tags associated with the Person, represented as strings.\cr
+title string  The professional title of the Person.\cr
+websites[]     list  An array of websites belonging to the Person.\cr
+websites[].url  string  The URL of a website.\cr
+websites[].category string  The category of the website.\cr
+date_created   number  A Unix timestamp representing the time at which this Person was created.\cr
+date_modified  number  A Unix timestamp representing the time at which this Person was last modified.\cr
+custom_fields[] list  An array of custom field values belonging to the Person.\cr
+custom_fields[]   \cr
+.custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
+custom_fields[]   \cr
 .value  mixed The value (number, string, option id, or timestamp) of this Custom Field.
 }
 \description{
@@ -65,6 +65,8 @@ print(paste("retrieved",nrow(people),"people from Copper"))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_deletePerson}},
   \code{\link{cppr_getAllRecordsRelatedToPerson}},

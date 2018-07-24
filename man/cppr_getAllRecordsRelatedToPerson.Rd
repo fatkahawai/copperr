@@ -10,9 +10,9 @@ cppr_getAllRecordsRelatedToPerson(id)
 \item{id}{string - the id of the person}
 }
 \value{
-a data frame of record ids , or NULL on error
-Field        Type    Details
-id           number  Unique identifier of the record
+a data frame of record ids , or NULL on error.\cr
+Field        Type    Details\cr
+id           number  Unique identifier of the record\cr
 type         string  the type of record, e.g. "opportunity", "company", "project"
 }
 \description{
@@ -30,6 +30,8 @@ print(paste("this person is related to",nrow(relps),"projects"))
 \code{\link{cppr_getOppsRelatedToPerson}}
 
 \code{\link{cppr_getPersonId}}
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_deletePerson}},

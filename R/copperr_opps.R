@@ -40,7 +40,6 @@
 # CONSTANTS ------------------------------------------------------------------
 #
 
-
 # ----------------------------------------------------------------------------
 #' cppr_updateOppCustomFieldDirect
 #'
@@ -65,6 +64,8 @@ cppr_updateOppCustomFieldDirect <- function(id,field_name,value) {
    stopifnot(is.numeric(id))
    stopifnot(is.character(field_name))
 
+   printIfVerbose("cppr_updateOppCustomFieldDirect:",id,field_name,value)
+   
    fieldId <- cppr_getCustomFieldId(field_name)
    fieldsList <- list( `custom_field_definition_id` = fieldId,
                        `value` = value)
@@ -83,6 +84,7 @@ cppr_updateOppCustomFieldDirect <- function(id,field_name,value) {
 #'
 #' @return the id of the opp if update was successful, else NULL
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' if(cppr_updateOppCustomFieldDropdown(12345,"Industry","Finance")) 
@@ -96,6 +98,8 @@ cppr_updateOppCustomFieldDropdown <- function(id,field_name,value) {
    stopifnot(is.numeric(id))
    stopifnot(is.character(field_name))
    stopifnot(is.character(value))
+
+   printIfVerbose("cppr_updateOppCustomFieldDropdown:",id,field_name,value)
 
    fieldId <- cppr_getCustomFieldId(field_name)
    optionId <- cppr_getCustomFieldOptionId(field_name,value)
@@ -117,6 +121,7 @@ cppr_updateOppCustomFieldDropdown <- function(id,field_name,value) {
 #'
 #' @return the id of the opp if update was successful, else NULL
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' optionsList <- list("Finance","Banking")
@@ -131,6 +136,8 @@ cppr_updateOppCustomFieldDropdownMulti <- function(id,field_name,valueList) {
    stopifnot(is.numeric(id))
    stopifnot(is.character(field_name))
    stopifnot(is.list(valueList))
+
+   printIfVerbose("cppr_updateOppCustomFieldDropdownMulti:",id,field_name,valueList)
 
    fieldId <- cppr_getCustomFieldId(field_name)
 
@@ -151,33 +158,34 @@ cppr_updateOppCustomFieldDropdownMulti <- function(id,field_name,valueList) {
 #' A record is a list of field names and values
 #'
 #' @param id numeric - the Id of the opportunity to return
-#' @return a List of Opportunity fields with various types, or Null if no Opp found
-#' Field               Type  Details
-#' id                  number  Unique identifier for the Opportunity.
-#' name               string  The name of the Opportunity.
-#' assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.
-#' close_date          string  The expected close date of the Opportunity in MM/DD/YYYY or DD/MM/YYYY format.
-#' company_id          string  The unique identifier of the primary Company with which the Opportunity is associated.
-#' company_name        string  The name of the primary Company with which the Opportunity is associated.
-#' customer_source_id  number  Unique identifier of the Customer Source that generated this Opportunity.
-#' details             string  Description of the Opportunity.
-#' loss_reason_id      number  If the Opportunity's status is "Lost", the unique identifier of the loss reason that caused this Opportunity to be lost.
-#' monetary_value      number  The monetary value of the Opportunity.
-#' pipeline_id         number  The unique identifier of the Pipeline in which this Opportunity is.
-#' primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.
-#' priority            string_enum The priority of the Opportunity. Valid values are: "None", "Low", "Medium", "High".
-#' pipeline_stage_id   number  The unique identifier of the Pipeline Stage of the Opportunity.
-#' status              string_enum The status of the Opportunity. Valid values are: "Open", "Won", "Lost", "Abandoned".
-#' tags                list  An array of the tags associated with the Opportunity, represented as strings.
-#' win_probability     number  The expected probability of winning the Opportunity. Valid values are [0-100] (inclusive).
-#' date_created        number  A Unix timestamp representing the time at which this Opportunity was created.
-#' date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.
-#' custom_fields[]     list  An array of custom field values belonging to the Opportunity.
-#' custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.
+#' @return a List of Opportunity fields with various types, or Null if no Opp found\cr
+#' Field               Type  Details\cr
+#' id                  number  Unique identifier for the Opportunity.\cr
+#' name               string  The name of the Opportunity.\cr
+#' assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.\cr
+#' close_date          string  The expected close date of the Opportunity in MM/DD/YYYY or DD/MM/YYYY format.\cr
+#' company_id          string  The unique identifier of the primary Company with which the Opportunity is associated.\cr
+#' company_name        string  The name of the primary Company with which the Opportunity is associated.\cr
+#' customer_source_id  number  Unique identifier of the Customer Source that generated this Opportunity.\cr
+#' details             string  Description of the Opportunity.\cr
+#' loss_reason_id      number  If the Opportunity's status is "Lost", the unique identifier of the loss reason that caused this Opportunity to be lost.\cr
+#' monetary_value      number  The monetary value of the Opportunity.\cr
+#' pipeline_id         number  The unique identifier of the Pipeline in which this Opportunity is.\cr
+#' primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.\cr
+#' priority            string_enum The priority of the Opportunity. Valid values are: "None", "Low", "Medium", "High".\cr
+#' pipeline_stage_id   number  The unique identifier of the Pipeline Stage of the Opportunity.\cr
+#' status              string_enum The status of the Opportunity. Valid values are: "Open", "Won", "Lost", "Abandoned".\cr
+#' tags                list  An array of the tags associated with the Opportunity, represented as strings.\cr
+#' win_probability     number  The expected probability of winning the Opportunity. Valid values are [0-100] (inclusive).\cr
+#' date_created        number  A Unix timestamp representing the time at which this Opportunity was created.\cr
+#' date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.\cr
+#' custom_fields[]     list  An array of custom field values belonging to the Opportunity.\cr
+#' custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
 #' custom_fields[].value mixed The value (number, string, option id, or timestamp) of this Custom Field.
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' opp <- cppr_getOppById(12345)
@@ -256,6 +264,7 @@ cppr_getOppById <- function(id) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getOppById}} for full list of Opportunity fields
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' opp <- cppr_getOppByName("Kodak film")
@@ -326,16 +335,18 @@ cppr_getOppByName <- function(name) {
 #' @param assignee_id numeric - select opps assigned to this User
 #' @param tags    string - select leads with one of these tags 
 #' @param sort_by string - values can be any of : (can be combined to provided ANDed)
-#' name
-#' assignee
-#' company_name
-#' customer_source_id
-#' monetary_value
-#' primary_contact
-#' priority
-#' status
-#' inactive_days
-#' last_interaction
+#' \itemize{
+#'   \item name
+#'   \item assignee
+#'   \item company_name
+#'   \item customer_source_id
+#'   \item monetary_value
+#'   \item primary_contact
+#'   \item priority
+#'   \item status
+#'   \item inactive_days
+#'   \item last_interaction
+#' }
 #' @param sort_direction string - can be "desc" or "asc"
 #'
 #' @return a dataframe of Opportunity field lists, or Null if no matching Opps found
@@ -344,6 +355,7 @@ cppr_getOppByName <- function(name) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getOppById}} for full list of Opportunity fields
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' opps <- cppr_getOpps()
@@ -465,6 +477,7 @@ cppr_getOpps <- function( pipeline_id=NULL,pipeline_stage_id=NULL, assignee_id=N
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr PUT content authenticate add_headers http_type user_agent
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' fields <- list( `name` = "new name for this Opportunity",
@@ -535,6 +548,7 @@ cppr_updateOpp <- function(id,list_of_fields) {
 #
 #' @return the id of the opp if update was successful, else NULL
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' if(cppr_updateOppCloseDate(12345,"03/31/2018")) 
@@ -566,6 +580,7 @@ cppr_updateOppCloseDate <- function(id,closedate_sz) {
 #' @return the id of the opp if update was successful, else NULL
 #' @seealso \code{\link{cppr_getPipelineStages}} to geta table of stage Ids and names
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' stages <- cppr_getPipelineStages(12345)
@@ -596,6 +611,7 @@ cppr_updateOppStage <- function(id,stage_id) {
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getOppById}} for full list of Opportunity fields
 #' @family Opportunity functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' opp <- list( `name` = "New Name",

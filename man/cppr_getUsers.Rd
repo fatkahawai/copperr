@@ -8,10 +8,10 @@ returns a table of all Copper users}
 cppr_getUsers()
 }
 \value{
-a data frame of users, or NULL on error
-Field Type    Details
-id    number  Unique identifier 
-name  string  The user name 
+a data frame of users, or NULL on error.\cr
+Field Type    Details\cr
+id    number  Unique identifier \cr
+name  string  The user name \cr
 email string  email address
 }
 \description{
@@ -24,5 +24,7 @@ users <- cppr_getUsers()
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other user functions: \code{\link{cppr_getUserId}}
 }

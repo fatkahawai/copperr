@@ -29,6 +29,8 @@ if(!is.null(newOppId))
 \seealso{
 \code{\link{cppr_getOppById}} for full list of Opportunity fields
 
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Opportunity functions: \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppById}},
   \code{\link{cppr_getOppByName}},

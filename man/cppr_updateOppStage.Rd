@@ -30,6 +30,8 @@ if(cppr_updateOppStage(12345,newStage))
 \seealso{
 \code{\link{cppr_getPipelineStages}} to geta table of stage Ids and names
 
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Opportunity functions: \code{\link{cppr_createNewOpp}},
   \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppById}},

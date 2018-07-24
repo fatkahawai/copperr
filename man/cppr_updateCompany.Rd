@@ -15,7 +15,7 @@ cppr_updateCompany(id, list_of_fields)
 the id of the Company record if successful else NULL
 }
 \description{
-updates a Company record in Copper using a list of values you provide
+Updates a Company record in Copper using a list of values you provide
 }
 \examples{
 \dontrun{
@@ -26,6 +26,8 @@ if(cppr_updateCompany(fields))
 }
 \seealso{
 \code{\link{cppr_getCompanyById}} for full list of Company fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other Company functions: \code{\link{cppr_createNewCompany}},
   \code{\link{cppr_deleteCompany}},

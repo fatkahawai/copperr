@@ -7,11 +7,11 @@
 cppr_getLossReasons()
 }
 \value{
-a data frame, or NULL on error
-Field                     Details
-id (number)               Unique identifier for the Pipeline Stage.
-name (string)             The name of the Pipeline Stage.
-order (number)            The position it is displayed in the list
+a data frame, or NULL on error\cr
+Field                     Details\cr
+id (number)               Unique identifier for the Pipeline Stage.\cr
+name (string)             The name of the Pipeline Stage.\cr
+order (number)            The position it is displayed in the list\cr
 is_default (boolean)      indicates if this value is the default for new records
 }
 \description{
@@ -25,7 +25,8 @@ print(paste("the statuses are called",statuses$name))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

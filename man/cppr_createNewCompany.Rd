@@ -29,6 +29,8 @@ if(!is.null(newCompanyId))
 \seealso{
 \code{\link{cppr_getCompanyById}} for full list of available Company fields
 
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Company functions: \code{\link{cppr_deleteCompany}},
   \code{\link{cppr_getCompanies}},
   \code{\link{cppr_getCompanyById}},

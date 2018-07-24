@@ -1,9 +1,6 @@
 context("User functions")
 #library()
 
-dw <- config::get("copper") 
-cppr_initialize(dw$uid,dw$api_key)
-
 users <- cppr_getUsers()
 
 test_that("cppr_getUsers() should return a non-NULL result", {

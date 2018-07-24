@@ -26,7 +26,10 @@ if(!is.null(id)) print(paste("stage 'Quote sent' has the id",id))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

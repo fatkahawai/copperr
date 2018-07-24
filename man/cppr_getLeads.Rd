@@ -21,37 +21,37 @@ cppr_getLeads(assignee_id = NULL, country = NULL, state = NULL,
 \item{sort_direction}{- allowed values "asc" or "desc"}
 }
 \value{
-a data frame
-Field          Type    Details
-id             number  Unique identifier 
-name           string  firstname lastname
-address        data frame encapulsation of street,city,postcode,state, country
-assignee_id    number  Unique identifier of the User that will be the owner of the Lead.
-company_id     string  The unique identifier of the primary Company with which the Lead is associated.
-company_name   string  The name of the primary Company with which the Lead is associated.
-customer_source_id number  The unique identifier of the source of the Lead
-details        string  Description of the Lead.
-email[]       data frame  An array of email addresses belonging to the Lead.
-email[].email  string  An email address.
-email[].category string  The category of the email address.
-phone_numbers[] list  An array of phone numbers belonging to the Lead.
-phone_numbers[].number  string  A phone number.
-phone_numbers[].category  string  The category of the phone number.
-socials[]       list  An array of social profiles belonging to the Lead.
-socials[].url    string  The URL of a social profile.
-socials[].category  string  The category of the social profile.
-status         string_enum 
-tags           list  An array of the tags associated with the Lead, represented as strings.
-title          string  The professional title of the Lead.
-websites[]     list  An array of websites belonging to the Lead.
-websites[].url  string  The URL of a website.
-websites[].category string  The category of the website.
-date_created   number  A Unix timestamp representing the time at which this Lead was created.
-date_modified  number  A Unix timestamp representing the time at which this Lead was last modified.
-custom_fields[] list  An array of custom field values belonging to the Person.
-custom_fields[]   
-.custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.
-custom_fields[]   
+a data frame.\cr
+Field          Type    Details\cr
+id             number  Unique identifier \cr
+name           string  firstname lastname\cr
+address        data frame encapulsation of street,city,postcode,state, country\cr
+assignee_id    number  Unique identifier of the User that will be the owner of the Lead.\cr
+company_id     string  The unique identifier of the primary Company with which the Lead is associated.\cr
+company_name   string  The name of the primary Company with which the Lead is associated.\cr
+customer_source_id number  The unique identifier of the source of the Lead\cr
+details        string  Description of the Lead.\cr
+email[]       data frame  An array of email addresses belonging to the Lead.\cr
+email[].email  string  An email address.\cr
+email[].category string  The category of the email address.\cr
+phone_numbers[] list  An array of phone numbers belonging to the Lead.\cr
+phone_numbers[].number  string  A phone number.\cr
+phone_numbers[].category  string  The category of the phone number.\cr
+socials[]       list  An array of social profiles belonging to the Lead.\cr
+socials[].url    string  The URL of a social profile.\cr
+socials[].category  string  The category of the social profile.\cr
+status         string_enum \cr
+tags           list  An array of the tags associated with the Lead, represented as strings.\cr
+title          string  The professional title of the Lead.\cr
+websites[]     list  An array of websites belonging to the Lead.\cr
+websites[].url  string  The URL of a website.\cr
+websites[].category string  The category of the website.\cr
+date_created   number  A Unix timestamp representing the time at which this Lead was created.\cr
+date_modified  number  A Unix timestamp representing the time at which this Lead was last modified.\cr
+custom_fields[] list  An array of custom field values belonging to the Person.\cr
+custom_fields[]   \cr
+.custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
+custom_fields[]   \cr
 .value  mixed The value (number, string, option id, or timestamp) of this Custom Field.
 }
 \description{
@@ -66,6 +66,8 @@ print(paste("retrieved",nrow(leads),"leads from PW"))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other Lead functions: \code{\link{cppr_createNewLead}},
   \code{\link{cppr_deleteLead}},
   \code{\link{cppr_updateLead}}

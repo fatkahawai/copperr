@@ -1,9 +1,6 @@
 context("Lead functions")
 #library()
 
-dw <- config::get("copper") 
-cppr_initialize(dw$uid,dw$api_key)
-
 # clean up any test data from previous test runs
 artifactLd <- cppr_getLeads(tags="test_copperr")
 if(nrow(artifactLd) > 0 ){

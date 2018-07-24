@@ -10,11 +10,11 @@ cppr_getPipelineStages(pipeline_id)
 \item{pipeline_id}{numeric - the Copper Id of the pipeline you want information on}
 }
 \value{
-a data frame, or NULL on error
-Field                     Details
-id (number)               Unique identifier for the Pipeline Stage.
-name (string)             The name of the Pipeline Stage.
-pipeline_id (number)      The unique identifier of the Pipeline in which this Pipeline Stage is.
+a data frame, or NULL on error\cr
+Field                     Details\cr
+id (number)               Unique identifier for the Pipeline Stage.\cr
+name (string)             The name of the Pipeline Stage.\cr
+pipeline_id (number)      The unique identifier of the Pipeline in which this Pipeline Stage is.\cr
 win_probability (number)  The expected probability of winning an Opportunity in this Pipeline Stage. Valid values are [0-100] (inclusive).#
 }
 \description{
@@ -28,7 +28,10 @@ print(paste("the stages are called",stages$name))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldDefinitions}},
   \code{\link{cppr_getCustomFieldId}},

@@ -262,6 +262,14 @@ changes made between newly released versions of the Copper API.
 These tests are an excellent source of examples because they cover most all cases of 
 utilizing the package functions. 
 
+To run the tests, you will need to create a config.yml file in the tests directory, with the following contents:
+```  
+copper:
+    api_key: '<your api key - get this from Copper settings>'
+    uid: '<your user id for logging into Copper>'
+```
+The test suite uses these credentials for authentication with Copper. 
+
 Future
 ------
 

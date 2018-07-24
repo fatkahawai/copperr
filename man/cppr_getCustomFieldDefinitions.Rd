@@ -7,15 +7,15 @@
 cppr_getCustomFieldDefinitions()
 }
 \value{
-a data frame, or NULL if not found
-Field     Type          Details
-id        number        Unique identifier for the custom field definition.
-name      string        Label for the custom field definition
+a data frame, or NULL if not found\cr
+Field     Type          Details\cr
+id        number        Unique identifier for the custom field definition.\cr
+name      string        Label for the custom field definition\cr
 data_type string enum   The type of data that should be stored within this custom field. 
                         Possible values are: String, Text, Dropdown, Date, Checkbox, Float, 
-                        Url, Percentage, Currency
-currency  string enum   The currency used for this custom field definition. Valid only when 
-                        the data type is Currency.
+                        Url, Percentage, Currency\cr
+currency  string enum   The currency used for this custom field definition. Valid only when \cr
+                        the data type is Currency.\cr
 options   options array A list of possible dropdown options. Valid only when the data type is Dropdown.
 }
 \description{
@@ -28,7 +28,10 @@ print(paste("there are", nrow(customFields),"custom fields defined in Copper"))
 }
 }
 \seealso{
-Other Resource functions: \code{\link{cppr_getContactTypes}},
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
+Other Resource functions: \code{\link{cppr_extractCustomFieldValues}},
+  \code{\link{cppr_getContactTypes}},
   \code{\link{cppr_getCustomFieldDatatype}},
   \code{\link{cppr_getCustomFieldId}},
   \code{\link{cppr_getCustomFieldName}},

@@ -23,6 +23,8 @@ if(!is.null(cppr_deletePerson(id)))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_getAllRecordsRelatedToPerson}},
   \code{\link{cppr_getOppsRelatedToPerson}},

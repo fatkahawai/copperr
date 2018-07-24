@@ -10,22 +10,22 @@ cppr_getCompanyById(id)
 \item{id}{numeric - the Id of the Company to return}
 }
 \value{
-a List of fields with various types, or Null if not found
-Field               Type  Details
-id                  number  Unique identifier for the Opportunity.
-name*               string  The name of the Opportunity.
-assignee_id         number  Unique identifier of the User that will be the owner of the Opportunity.
-details             string  Description of the Opportunity.
-primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.
-tags                list  An array of the tags associated with the Opportunity, represented as strings.
-date_created        number  A Unix timestamp representing the time at which this Opportunity was created.
-date_modified       number  A Unix timestamp representing the time at which this Opportunity was last modified.
-custom_fields[]     list  An array of custom field values belonging to the Opportunity.
-custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.
-custom_fields[].value mixed The value (number, string, option id, or timestamp) of this Custom Field.
+a List of fields with various types, or Null if not found\cr
+Field Type Details\cr
+id  number   Unique identifier for the Opportunity.\cr
+name  string  The name of the Opportunity.\cr
+assignee_id  number  Unique identifier of the User that will be the owner of the Opportunity.\cr
+details  string  Description of the Opportunity.\cr
+primary_contact_id  number  The unique identifier of the Person who is the primary contact for this Opportunity.\cr
+tags  list  An array of the tags associated with the Opportunity, represented as strings.\cr
+date_created  number  A Unix timestamp representing the time at which this Opportunity was created.\cr
+date_modified  number  A Unix timestamp representing the time at which this Opportunity was last modified.\cr
+custom_fields[]  A table of custom field values belonging to the Opportunity.\cr
+custom_fields[].custom_field_definition_id  number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
+custom_fields[].value  mixed The value (number, string, option id, or timestamp) of this Custom Field.\cr
 }
 \description{
-get the Company record identified by a Copper Id
+Get the Company record identified by a Copper Id
 }
 \examples{
 \dontrun{
@@ -35,6 +35,8 @@ print(paste("it's name is",company$name))
 }
 \seealso{
 \code{\link{cppr_getCompanyById}} for full list of available Company fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other Company functions: \code{\link{cppr_createNewCompany}},
   \code{\link{cppr_deleteCompany}},

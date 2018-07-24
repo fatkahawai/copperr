@@ -20,16 +20,18 @@ cppr_getOpps(pipeline_id = NULL, pipeline_stage_id = NULL,
 \item{tags}{string - select leads with one of these tags}
 
 \item{sort_by}{string - values can be any of : (can be combined to provided ANDed)
-name
-assignee
-company_name
-customer_source_id
-monetary_value
-primary_contact
-priority
-status
-inactive_days
-last_interaction}
+\itemize{
+  \item name
+  \item assignee
+  \item company_name
+  \item customer_source_id
+  \item monetary_value
+  \item primary_contact
+  \item priority
+  \item status
+  \item inactive_days
+  \item last_interaction
+}}
 
 \item{sort_direction}{string - can be "desc" or "asc"}
 }
@@ -49,6 +51,8 @@ print(paste("retrieved",nrow(opps),"opportunities from Copper"))
 }
 \seealso{
 \code{\link{cppr_getOppById}} for full list of Opportunity fields
+
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 
 Other Opportunity functions: \code{\link{cppr_createNewOpp}},
   \code{\link{cppr_deleteOpp}},

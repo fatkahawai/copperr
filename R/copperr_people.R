@@ -33,26 +33,29 @@
 # (C) 2017,2018 http://www.robert-drummond.com
 ##############################################################################
 
+
 # ----------------------------------------------------------------------------
 #' cppr_getPersonByName 
 #'
 #' Get a People record identfied by the person's Name
+#'
 #' @note This uses the search API, which could return multiple people with the same name. 
 #' Only the first match is returned! (if you initialized the package with Verbose=TRUE, 
 #' you will see a warning displayed in this case)
 #' To be sure of getting the record you want, use cppr_getPersonById or cppr_getPersonByEmail which both
 #' use a field guaranteed by Copper to be unique, or use cppr_getPeople() to get all matches.
 #' @param name string - the full name of the person 'firstname lastname'
-#' @return a list of Person fields, or NULL if unsuccessful
-#' Field        Type    Details
-#' id           number  Unique identifier 
-#' name*        string  firstname lastname
-#' address      address An encapsulation of the Person's street, city, state, postal code, and country.
-#' assignee_id  number Unique identifier of the User that will be the owner of the Person.
+#' @return a list of Person fields, or NULL if unsuccessful.\cr
+#' Field        Type    Details\cr
+#' id           number  Unique identifier\cr
+#' name         string  firstname lastname.\cr
+#' address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+#' assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 #' etc
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getPeople}} for full list of Person fields
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @family People functions
 #' @examples 
 #' \dontrun{ 
@@ -120,18 +123,20 @@ cppr_getPersonByName <- function(name) {
 #' cppr_getPersonById
 #'
 #' Get a People record identfied by the person's Id
+#'
 #' @param id    numeric - the Copper Id of the person 
-#' @return a list, or NULL if unsuccessful
-#' Field        Type    Details
-#' id           number  Unique identifier 
-#' name*        string  firstname lastname
-#' address      address An encapsulation of the Person's street, city, state, postal code, and country.
-#' assignee_id  number Unique identifier of the User that will be the owner of the Person.
+#' @return a list, or NULL if unsuccessful.\cr
+#' Field        Type    Details\cr
+#' id           number  Unique identifier.\cr
+#' name*        string  firstname lastname.\cr
+#' address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+#' assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 #' etc
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getPeople}} for full list of Person fields
 #' @seealso \code{\link{cppr_getPersonId}} to find the Person Id if you know their name
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @family People functions
 #' @examples 
 #' \dontrun{ 
@@ -195,18 +200,20 @@ cppr_getPersonById <- function(id) {
 #' cppr_getPersonByEmail
 #'
 #' Get a People record identfied by the person's Name
+#'
 #' @param email    string - the Copper Id of the person 
-#' @return a list, or NULL if unsuccessful
-#' Field        Type    Details
-#' id           number  Unique identifier 
-#' name*        string  firstname lastname
-#' address      address An encapsulation of the Person's street, city, state, postal code, and country.
-#' assignee_id  number Unique identifier of the User that will be the owner of the Person.
+#' @return a list, or NULL if unsuccessful.\cr
+#' Field        Type    Details\cr
+#' id           number  Unique identifier \cr
+#' name*        string  firstname lastname\cr
+#' address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+#' assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 #' etc
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getPeople}} for full list of Person fields
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' person <- cppr_getPersonByEmail("john@@foo.bar")
@@ -270,6 +277,7 @@ cppr_getPersonByEmail <- function(email) {
 #' cppr_getPersonId
 #'
 #' Get a Copper Id for the Person record identfied by the person's Name
+#'
 #' @note This uses the search API, which could return multiple people with the same name. 
 #' Only the first match is returned! (if you initialized the package with Verbose=TRUE, 
 #' you will see a warning displayed in this case)
@@ -278,6 +286,7 @@ cppr_getPersonByEmail <- function(email) {
 #' @param name string - the full name of the person in format 'firstname lastname'
 #' @return an numeric Id. The first matching Copper Id, 0 if no match found, or NULL on error.
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' id <- cppr_getPersonId("John Smith")
@@ -314,41 +323,42 @@ cppr_getPersonId <- function(name) {
 #' @param tags    string - select people with one of these tags 
 #' @param sort_by string - sort records by "name", etc
 #' @param sort_direction string - allowed values "asc" or "desc"
-#' @return a data frame, where each row is a Person, or NULL on error
-#' Field          Type    Details
-#' id             number  Unique identifier 
-#' name           string  firstname lastname
-#' address        address ecapulsation of street,city,postcode,state, country
-#' assignee_id    number  Unique identifier of the User that will be the owner of the Person.
-#' company_id     string  The unique identifier of the primary Company with which the Person is associated.
-#' company_name   string  The name of the primary Company with which the Person is associated.
-#' contact_type_id number  The unique identifier of the Contact Type of the Person.
-#' details        string  Description of the Person.
-#' emails[]       list  An array of email addresses belonging to the Person.
-#' emails[].email  string  An email address.
-#' emails[].category string  The category of the email address.
-#' phone_numbers[] list  An array of phone numbers belonging to the Person.
-#' phone_numbers[].number  string  A phone number.
-#' phone_numbers[].category  string  The category of the phone number.
-#' socials[]       list  An array of social profiles belonging to the Person.
-#' socials[].url    string  The URL of a social profile.
-#' socials[].category  string  The category of the social profile.
-#' tags           list  An array of the tags associated with the Person, represented as strings.
-#' title string  The professional title of the Person.
-#' websites[]     list  An array of websites belonging to the Person.
-#' websites[].url  string  The URL of a website.
-#' websites[].category string  The category of the website.
-#' date_created   number  A Unix timestamp representing the time at which this Person was created.
-#' date_modified  number  A Unix timestamp representing the time at which this Person was last modified.
-#' custom_fields[] list  An array of custom field values belonging to the Person.
-#' custom_fields[]   
-#' .custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.
-#' custom_fields[]   
+#' @return a data frame, where each row is a Person, or NULL on error.\cr
+#' Field          Type    Details\cr
+#' id             number  Unique identifier \cr
+#' name           string  firstname lastname\cr
+#' address        address ecapulsation of street,city,postcode,state, country\cr
+#' assignee_id    number  Unique identifier of the User that will be the owner of the Person.\cr
+#' company_id     string  The unique identifier of the primary Company with which the Person is associated.\cr
+#' company_name   string  The name of the primary Company with which the Person is associated.\cr
+#' contact_type_id number  The unique identifier of the Contact Type of the Person.\cr
+#' details        string  Description of the Person.\cr
+#' emails[]       list  An array of email addresses belonging to the Person.\cr
+#' emails[].email  string  An email address.\cr
+#' emails[].category string  The category of the email address.\cr
+#' phone_numbers[] list  An array of phone numbers belonging to the Person.\cr
+#' phone_numbers[].number  string  A phone number.\cr
+#' phone_numbers[].category  string  The category of the phone number.\cr
+#' socials[]       list  An array of social profiles belonging to the Person.\cr
+#' socials[].url    string  The URL of a social profile.\cr
+#' socials[].category  string  The category of the social profile.\cr
+#' tags           list  An array of the tags associated with the Person, represented as strings.\cr
+#' title string  The professional title of the Person.\cr
+#' websites[]     list  An array of websites belonging to the Person.\cr
+#' websites[].url  string  The URL of a website.\cr
+#' websites[].category string  The category of the website.\cr
+#' date_created   number  A Unix timestamp representing the time at which this Person was created.\cr
+#' date_modified  number  A Unix timestamp representing the time at which this Person was last modified.\cr
+#' custom_fields[] list  An array of custom field values belonging to the Person.\cr
+#' custom_fields[]   \cr
+#' .custom_field_definition_id number  The id of the Custom Field Definition for which this Custom Field stores a value.\cr
+#' custom_fields[]   \cr
 #' .value  mixed The value (number, string, option id, or timestamp) of this Custom Field.
 #' @importFrom utils str
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr POST content authenticate add_headers http_type user_agent
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' people <- cppr_getPeople()
@@ -465,15 +475,16 @@ cppr_getPeople <- function(assignee_id=NULL,country=NULL,state=NULL,tags=NULL,so
 #' Opportunities, Companies, Projects, etc
 #'
 #' @param id string - the id of the person 
-#' @return a data frame of record ids , or NULL on error
-#' Field        Type    Details
-#' id           number  Unique identifier of the record
+#' @return a data frame of record ids , or NULL on error.\cr
+#' Field        Type    Details\cr
+#' id           number  Unique identifier of the record\cr
 #' type         string  the type of record, e.g. "opportunity", "company", "project"
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getOppsRelatedToPerson}}
 #' @seealso \code{\link{cppr_getPersonId}}
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' relrecs <- cppr_getAllRecordsRelatedToPerson(12345)
@@ -543,15 +554,16 @@ cppr_getAllRecordsRelatedToPerson <- function(id) {
 #' get the ids of all opportunity records in Copper related to a Person.
 #'
 #' @param id string - the id of the person 
-#' @return a data frame of record ids , or NULL on error
-#' Field        Type    Details
-#' id           number  Unique identifier of the record
+#' @return a data frame of record ids , or NULL on error.\cr
+#' Field        Type    Details\cr
+#' id           number  Unique identifier of the record\cr
 #' type         string  "opportunity"
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr GET content authenticate add_headers http_type user_agent
 #' @seealso \code{\link{cppr_getAllRecordsRelatedToPerson}}
 #' @seealso \code{\link{cppr_getPersonId}}
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples
 #' \dontrun{ 
 #' relopps <- cppr_getOppsRelatedToPerson(12345)
@@ -621,17 +633,19 @@ cppr_getOppsRelatedToPerson <- function(id) {
 #'
 #' @param id numeric - the Id of the Person to be updated
 #' @param list_of_fields list - a list of fields for the new Person 
-#' Field        Type    Details
-#' id           number  Unique identifier 
-#' name*        string  firstname lastname
-#' address      address An encapsulation of the Person's street, city, state, postal code, and country.
-#' assignee_id  number Unique identifier of the User that will be the owner of the Person.
-#' etc
-#'
+#' \itemize{
+#'   \item Field        Type    Details
+#'   \item id           number  Unique identifier 
+#'   \item name         string  firstname lastname
+#'   \item address      address An encapsulation of the Person's street, city, state, postal code, and country.
+#'   \item assignee_id  number Unique identifier of the User that will be the owner of the Person.
+#'   \item etc
+#' }
 #' @return the id of the Person if update was successful, else NULL
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr DELETE content authenticate add_headers http_type user_agent
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' if(!is.null(cppr_updatePerson(id))) 
@@ -693,12 +707,12 @@ cppr_updatePerson <- function(id, list_of_fields) {
 #' cppr_createNewPerson
 #'
 #' Create a new record in the People object using the fields passed in the argument
-#' @param person list - a list of fields for the new Person 
-#' Field        Type    Details
-#' id           number  Unique identifier 
-#' name*        string  firstname lastname
-#' address      address An encapsulation of the Person's street, city, state, postal code, and country.
-#' assignee_id  number Unique identifier of the User that will be the owner of the Person.
+#' @param person list - a list of fields for the new Person.\cr 
+#' Field        Type    Details\cr
+#' id           number  Unique identifier \cr
+#' name*        string  firstname lastname\cr
+#' address      address An encapsulation of the Person's street, city, state, postal code, and country.\cr
+#' assignee_id  number Unique identifier of the User that will be the owner of the Person.\cr
 #' etc
 #' @return the numeric id of the new Person if successful, or NULL 
 #' @importFrom jsonlite fromJSON 
@@ -706,6 +720,7 @@ cppr_updatePerson <- function(id, list_of_fields) {
 #' @seealso \code{\link{cppr_getPeople}} for full list of Person fields
 #' @seealso \code{\link{cppr_getPersonId}} to find the Person Id if you know their name
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' id <- cppr_getPersonId("John Smith")
@@ -773,6 +788,7 @@ cppr_createNewPerson <- function(person) {
 #' @importFrom jsonlite fromJSON 
 #' @importFrom httr DELETE content authenticate add_headers http_type user_agent
 #' @family People functions
+#' @seealso For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
 #' @examples 
 #' \dontrun{ 
 #' if(!is.null(cppr_deletePerson(id))) 

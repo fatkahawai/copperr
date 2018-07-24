@@ -10,12 +10,14 @@ cppr_updatePerson(id, list_of_fields)
 \item{id}{numeric - the Id of the Person to be updated}
 
 \item{list_of_fields}{list - a list of fields for the new Person 
-Field        Type    Details
-id           number  Unique identifier 
-name*        string  firstname lastname
-address      address An encapsulation of the Person's street, city, state, postal code, and country.
-assignee_id  number Unique identifier of the User that will be the owner of the Person.
-etc}
+\itemize{
+  \item Field        Type    Details
+  \item id           number  Unique identifier 
+  \item name         string  firstname lastname
+  \item address      address An encapsulation of the Person's street, city, state, postal code, and country.
+  \item assignee_id  number Unique identifier of the User that will be the owner of the Person.
+  \item etc
+}}
 }
 \value{
 the id of the Person if update was successful, else NULL
@@ -30,6 +32,8 @@ if(!is.null(cppr_updatePerson(id)))
 }
 }
 \seealso{
+For details of data structures refer to \href{https://developer.copper.com/#getting-support}{Copper (TM) Developer API Guide}
+
 Other People functions: \code{\link{cppr_createNewPerson}},
   \code{\link{cppr_deletePerson}},
   \code{\link{cppr_getAllRecordsRelatedToPerson}},

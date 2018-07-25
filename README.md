@@ -1,8 +1,6 @@
 copperr<img src="inst/doc/favicon.ico" width="120px" align="right" />
 =====================================================================
 
-_(C) 2018 Robert Drummond_
-
 **copperr** is an R package that connects to Copper CRM Platform APIs using tidy principles. The package implements most key actions from the REST API. Package features include:
 
 -   Basic (Username/API-key) Authentication methods (`cppr_initialize`)
@@ -283,3 +281,4 @@ More Information
 Copper provides client libraries and examples in many programming langauges (Java, Python, Ruby, and PhP) but unfortunately R is not a supported language. However, most key operations supported by the Copper APIs are available via this package. This package makes requests best formatted to match what the APIs require as input. This articulation is not perfect and continued progress will be made to add and improve functionality. For details on formatting, attributes, and methods please refer to the [Copper API documentation(http://developer.copper.com). as they are explained more fully there.
 
 
+_(C) 2018 Robert Drummond_

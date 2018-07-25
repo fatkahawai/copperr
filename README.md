@@ -1,5 +1,5 @@
-README
-======
+copperr<img src="inst/doc/favicon.ico" width="120px" align="right" />
+=====================================================================
 
 _(C) 2018 Robert Drummond_
 

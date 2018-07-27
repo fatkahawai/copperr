@@ -35,10 +35,12 @@ Other Opportunity functions: \code{\link{cppr_deleteOpp}},
   \code{\link{cppr_getOppById}},
   \code{\link{cppr_getOppByName}},
   \code{\link{cppr_getOpps}},
+  \code{\link{cppr_updateCompanyCustomFieldDirect}},
   \code{\link{cppr_updateOppCloseDate}},
   \code{\link{cppr_updateOppCustomFieldDirect}},
   \code{\link{cppr_updateOppCustomFieldDropdownMulti}},
   \code{\link{cppr_updateOppCustomFieldDropdown}},
   \code{\link{cppr_updateOppStage}},
-  \code{\link{cppr_updateOpp}}
+  \code{\link{cppr_updateOpp}},
+  \code{\link{cppr_updatePersonCustomFieldDirect}}
 }

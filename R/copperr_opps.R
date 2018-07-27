@@ -69,8 +69,9 @@ cppr_updateOppCustomFieldDirect <- function(id,field_name,value) {
    fieldId <- cppr_getCustomFieldId(field_name)
    fieldsList <- list( `custom_field_definition_id` = fieldId,
                        `value` = value)
+   mods <- list(`custom_fields` = data.frame(fieldsList))
 
-   return(cppr_updateOpp(id,fieldsList))
+   return(cppr_updateOpp(id,mods))
 }
 
 # ----------------------------------------------------------------------------
@@ -105,8 +106,9 @@ cppr_updateOppCustomFieldDropdown <- function(id,field_name,value) {
    optionId <- cppr_getCustomFieldOptionId(field_name,value)
    fieldsList <- list( `custom_field_definition_id` = fieldId,
                        `value` = optionId)
+   mods <- list(`custom_fields` = data.frame(fieldsList))
 
-   return(cppr_updateOpp(id,fieldsList))
+   return(cppr_updateOpp(id,mods))
 }
 
 # ----------------------------------------------------------------------------
@@ -147,8 +149,9 @@ cppr_updateOppCustomFieldDropdownMulti <- function(id,field_name,valueList) {
       fieldsList <- list( `custom_field_definition_id` = fieldId,
                           `value` = optionsIdList)
     }
+   mods <- list(`custom_fields` = data.frame(fieldsList))
 
-   return(cppr_updateOpp(id,fieldsList))
+   return(cppr_updateOpp(id,mods))
 }
 
 # ----------------------------------------------------------------------------

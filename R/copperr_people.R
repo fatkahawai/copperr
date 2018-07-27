@@ -35,6 +35,41 @@
 
 
 # ----------------------------------------------------------------------------
+#' cppr_updatePersonCustomFieldDirect
+#'
+#' update any custom field of an Person that is not a dropdown (which needs an option id)
+#' can be text, number, currency, date or checkbox
+#'
+#' @param id numeric - Copper Id for the Person you are updating
+#' @param field_name string - name of custom field, e.g. "Nickname"
+#' @param value various types - value to set the field to. e.g. "Bucky" or 23 or TRUE
+#' @return the id of the opp if update was successful, else NULL
+#' @family Opportunity functions
+#' @examples
+#' \dontrun{ 
+#' if(cppr_updatePersonCustomFieldDirect(202193, "Sales Region", "Mid-West"))
+#'   print("Person updated successfully"))
+#' }
+#' @export
+# ----------------------------------------------------------------------------
+cppr_updatePersonCustomFieldDirect <- function(id,field_name,value) {
+
+   stopifnot(pkg_is_initialized())    
+   stopifnot(is.numeric(id))
+   stopifnot(is.character(field_name))
+
+   printIfVerbose("cppr_updatePersonCustomFieldDirect:",id,field_name,value)
+   
+   fieldId <- cppr_getCustomFieldId(field_name)
+   fieldsList <- list( `custom_field_definition_id` = fieldId,
+                       `value` = value)
+   mods <- list(`custom_fields` = data.frame(fieldsList))
+
+   return(cppr_updatePerson(id,mods))
+}
+
+
+# ----------------------------------------------------------------------------
 #' cppr_getPersonByName 
 #'
 #' Get a People record identfied by the person's Name

@@ -259,7 +259,8 @@ cppr_getCustomFieldDefinitions <- function() {
           printIfVerbose("cppr_getCustomFieldDefinitions: no Custom Field Definitions found in Copper")
           defs <- as.data.frame(NULL) # return an empty data frame
         } else {
-          printIfVerbose("cppr_getCustomFieldDefinitions result: ",str(result))
+          printIfVerbose("cppr_getCustomFieldDefinitions result: ")
+          printIfVerbose(str(result))
           defs <- result
           # cache table in local environment
           assign("cppr_CustomFieldDefs", defs, envir=.pkgglobalenv)
@@ -548,9 +549,11 @@ cppr_extractCustomFieldValues <- function(custom_fields,field_name) {
     if(is.null(fieldId))
         return(NULL)
     
-    # extract the data frame of ids and values from the list element
+    # extract the value from the data frame of ids and values in the list element
     value_lst <- custom_fields$value[custom_fields$custom_field_definition_id==fieldId] 
     
+    if( value_lst == "list()")
+        value_lst <- list() # return empty list of length 0
     return(value_lst)
 }
 

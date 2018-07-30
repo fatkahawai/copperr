@@ -70,6 +70,7 @@ cppr_updateOppCustomFieldDirect <- function(id,field_name,value) {
    fieldsList <- list( `custom_field_definition_id` = fieldId,
                        `value` = value)
    mods <- list(`custom_fields` = data.frame(fieldsList))
+   printIfVerbose(mods)
 
    return(cppr_updateOpp(id,mods))
 }
@@ -500,7 +501,8 @@ cppr_updateOpp <- function(id,list_of_fields) {
     path <- paste0(.pkgglobalenv$cppr_Endpoint,api,id)
     returnId = NULL
 
-    printIfVerbose("cppr_updateOpp: path=",path,list_of_fields)
+    printIfVerbose("cppr_updateOpp: path=",path)
+    printIfVerbose(list_of_fields)
 
     raw.result <- httr::PUT(url = .pkgglobalenv$cppr_Url, path = path, 
                       httr::user_agent(.pkgglobalenv$cppr_Ua),

@@ -552,7 +552,8 @@ cppr_extractCustomFieldValues <- function(custom_fields,field_name) {
     # extract the value from the data frame of ids and values in the list element
     value_lst <- custom_fields$value[custom_fields$custom_field_definition_id==fieldId] 
     
-    if( value_lst == "list()")
+    if(length(value_lst) > 0)
+      if( value_lst == "list()")
         value_lst <- list() # return empty list of length 0
     return(value_lst)
 }
